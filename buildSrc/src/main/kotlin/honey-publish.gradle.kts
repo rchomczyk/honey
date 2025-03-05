@@ -4,7 +4,7 @@ plugins {
 }
 
 group = "dev.shiza"
-version = "2.3.1-SNAPSHOT"
+version = "2.4.0"
 
 java {
     withSourcesJar()
@@ -14,12 +14,6 @@ java {
 publishing {
     repositories {
         mavenLocal()
-        maven(
-            name = "shiza",
-            url = "https://repo.shiza.dev",
-            username = "MAVEN_USERNAME",
-            password = "MAVEN_PASSWORD"
-        )
     }
 }
 
