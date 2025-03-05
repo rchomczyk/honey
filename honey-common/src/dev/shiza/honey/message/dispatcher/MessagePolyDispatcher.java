@@ -5,12 +5,12 @@ import java.util.function.UnaryOperator;
 
 public interface MessagePolyDispatcher<VIEWER, RESULT> {
 
-  MessagePolyDispatcher<VIEWER, RESULT> viewer(final VIEWER viewer);
+    MessagePolyDispatcher<VIEWER, RESULT> viewer(final VIEWER viewer);
 
-  MessagePolyDispatcher<VIEWER, RESULT> placeholders(
-      final UnaryOperator<MessageRenderer<RESULT>> consumer);
+    MessagePolyDispatcher<VIEWER, RESULT> placeholders(
+        final UnaryOperator<MessageRenderer<RESULT>> consumer);
 
-  void dispatch();
+    void dispatch();
 
-  CompletableFuture<Void> dispatchAsync();
+    CompletableFuture<Void> dispatchAsync();
 }

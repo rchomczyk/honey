@@ -6,18 +6,16 @@ import java.util.List;
 
 public interface PlaceholderSanitizer {
 
-  String getSanitizedContent(final String content, final List<SanitizedPlaceholder> placeholders);
-
-  SanitizedPlaceholder getSanitizedPlaceholder(final EvaluatedPlaceholder placeholder);
-
-  default List<SanitizedPlaceholder> getSanitizedPlaceholders(
-      final List<EvaluatedPlaceholder> placeholders) {
-    final List<SanitizedPlaceholder> sanitizedPlaceholders = new ArrayList<>();
-    for (final EvaluatedPlaceholder placeholder : placeholders) {
-      sanitizedPlaceholders.add(getSanitizedPlaceholder(placeholder));
+    default List<SanitizedPlaceholder> getSanitizedPlaceholders(
+        final List<EvaluatedPlaceholder> placeholders) {
+        final List<SanitizedPlaceholder> sanitizedPlaceholders = new ArrayList<>();
+        for (final EvaluatedPlaceholder placeholder : placeholders) {
+            sanitizedPlaceholders.add(getSanitizedPlaceholder(placeholder));
+        }
+        return sanitizedPlaceholders;
     }
-    return sanitizedPlaceholders;
-  }
 
-  record SanitizedPlaceholder(String key, String expression, Object evaluatedValue) {}
+    record SanitizedPlaceholder(String key, String expression, Object evaluatedValue) {}
+    String getSanitizedContent(final String content, final List<SanitizedPlaceholder> placeholders);
+    SanitizedPlaceholder getSanitizedPlaceholder(final EvaluatedPlaceholder placeholder);
 }

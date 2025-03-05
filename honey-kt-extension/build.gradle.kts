@@ -10,7 +10,7 @@ repositories {
 }
 
 dependencies {
-    compileOnly(project(":honey-common"))
+    compileOnly(project(":honey-adventure"))
     compileOnly("io.papermc.paper:paper-api:1.20.4-R0.1-SNAPSHOT")
 }
 

@@ -4,9 +4,9 @@ import dev.shiza.honey.placeholder.evaluator.PlaceholderEvaluator;
 
 public final class ReflectivePlaceholderEvaluatorFactory {
 
-  private ReflectivePlaceholderEvaluatorFactory() {}
+    private ReflectivePlaceholderEvaluatorFactory() {}
 
-  public static PlaceholderEvaluator create() {
-    return new ReflectivePlaceholderEvaluator();
-  }
+    public static PlaceholderEvaluator create() {
+        return new ReflectivePlaceholderEvaluator();
+    }
 }

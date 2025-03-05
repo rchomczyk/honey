@@ -7,47 +7,8 @@ A message library, which focuses on simplicity and flexibility.
 *honey* was created to allow for developers to create easily customizable messages for end users, by giving them flexibility with placeholders.
 
 ### Get started
-
-#### Gradle DSL (kts) || std
-
-##### Add repository
-
-```kotlin
-maven("https://repo.shiza.dev/releases")
-```
-
-```groovy
-maven { url 'https://repo.shiza.dev/releases' }
-```
-
-##### Add dependency
-
-```kotlin
-implementation("dev.shiza:honey:2.2.2")
-```
-
-```groovy
-implementation 'dev.shiza:honey:2.2.2' 
-```
-
-#### Maven
-
-##### Add repository
-```xml
-<repository>
-  <id>shiza-releases</id>
-  <url>https://repo.shiza.dev/releases</url>
-</repository>
-```
-
-##### Add dependency
-```xml
-<dependency>
-  <groupId>dev.shiza</groupId>
-  <artifactId>honey</artifactId>
-  <version>2.2.2</version>
-</dependency>
-```
+You can build dependency and append it to your local .m2 directory, by using:
+`./gradlew publishToMavenLocal`
 
 ![test-plugin showcase](assets/image.png)
 

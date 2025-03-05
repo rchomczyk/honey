@@ -6,13 +6,13 @@ import dev.shiza.honey.placeholder.sanitizer.PlaceholderSanitizer;
 
 public final class PlaceholderProcessorFactory {
 
-  private PlaceholderProcessorFactory() {}
+    private PlaceholderProcessorFactory() {}
 
-  public static PlaceholderProcessor create(
-      final PlaceholderEvaluator placeholderEvaluator,
-      final PlaceholderSanitizer placeholderSanitizer,
-      final ImplicitConversion implicitConversion) {
-    return new PlaceholderProcessorImpl(
-        placeholderEvaluator, placeholderSanitizer, implicitConversion);
-  }
+    public static PlaceholderProcessor create(
+        final PlaceholderEvaluator placeholderEvaluator,
+        final PlaceholderSanitizer placeholderSanitizer,
+        final ImplicitConversion implicitConversion) {
+        return new PlaceholderProcessorImpl(
+            placeholderEvaluator, placeholderSanitizer, implicitConversion);
+    }
 }

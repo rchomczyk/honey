@@ -11,21 +11,20 @@ import java.util.function.Supplier;
 @FunctionalInterface
 public interface PlaceholderEvaluator {
 
-  EvaluatedPlaceholder evaluate(
-      final PlaceholderContext context,
-      final PlaceholderVisitor<?> visitor,
-      final Placeholder placeholder);
-
-  default List<EvaluatedPlaceholder> evaluate(
-      final PlaceholderContext context,
-      final Supplier<PlaceholderVisitor<?>> visitor,
-      final Set<Placeholder> placeholders) {
-    final List<EvaluatedPlaceholder> evaluatedPlaceholders = new ArrayList<>();
-    for (final Placeholder placeholder : placeholders) {
-      evaluatedPlaceholders.add(evaluate(context, visitor.get(), placeholder));
+    default List<EvaluatedPlaceholder> evaluate(
+        final PlaceholderContext context,
+        final Supplier<PlaceholderVisitor<?>> visitor,
+        final Set<Placeholder> placeholders) {
+        final List<EvaluatedPlaceholder> evaluatedPlaceholders = new ArrayList<>();
+        for (final Placeholder placeholder : placeholders) {
+            evaluatedPlaceholders.add(evaluate(context, visitor.get(), placeholder));
+        }
+        return evaluatedPlaceholders;
     }
-    return evaluatedPlaceholders;
-  }
 
-  record EvaluatedPlaceholder(Placeholder placeholder, Object evaluatedValue) {}
+    record EvaluatedPlaceholder(Placeholder placeholder, Object evaluatedValue) {}
+    EvaluatedPlaceholder evaluate(
+        final PlaceholderContext context,
+        final PlaceholderVisitor<?> visitor,
+        final Placeholder placeholder);
 }

@@ -12,5 +12,5 @@ dependencies {
 }
 
 honeyPublish {
-    artifactId = "honey"
+    artifactId = "honey-common"
 }

@@ -11,19 +11,19 @@ import java.util.concurrent.CompletableFuture;
  */
 public interface MessageFormatter<T> {
 
-  /**
-   * Formats the given message synchronously.
-   *
-   * @param message the message to be formatted.
-   * @return the formatted message of type T.
-   */
-  T format(final Message message);
+    /**
+     * Formats the given message synchronously.
+     *
+     * @param message the message to be formatted.
+     * @return the formatted message of type T.
+     */
+    T format(final Message message);
 
-  /**
-   * Formats the given message asynchronously.
-   *
-   * @param message the message to be formatted.
-   * @return a CompletableFuture representing the formatted message of type T.
-   */
-  CompletableFuture<T> formatAsync(final Message message);
+    /**
+     * Formats the given message asynchronously.
+     *
+     * @param message the message to be formatted.
+     * @return a CompletableFuture representing the formatted message of type T.
+     */
+    CompletableFuture<T> formatAsync(final Message message);
 }

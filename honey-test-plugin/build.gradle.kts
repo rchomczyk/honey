@@ -11,12 +11,12 @@ repositories {
 }
 
 dependencies {
-    compileOnly("io.papermc.paper:paper-api:1.21.3-R0.1-SNAPSHOT")
+    compileOnly("io.papermc.paper:paper-api:1.21.4-R0.1-SNAPSHOT")
 }
 
 dependencies {
-    implementation(project(":honey-common"))
-    implementation(project(":honey-configs:honey-configs-okaeri"))
+    implementation(project(":honey-adventure"))
+    implementation(project(":honey-configs:honey-configs-adventure-okaeri"))
     implementation(libs.okaeri.configs.yaml.bukkit)
 }
 
@@ -27,8 +27,8 @@ java {
 bukkit {
     main = "dev.shiza.honey.ExamplePlugin"
     name = "honey-test-plugin"
-    version = "2.0.0-SNAPSHOT"
-    apiVersion = "1.21.3"
+    version = "2.4.0-SNAPSHOT"
+    apiVersion = "1.21.4"
     authors = listOf("rchomczyk")
 }
 
@@ -38,6 +38,6 @@ tasks {
     }
 
     runServer {
-        minecraftVersion("1.21.3")
+        minecraftVersion("1.21.4")
     }
 }

@@ -12,13 +12,13 @@ import java.util.List;
 @FunctionalInterface
 public interface MessageCompiler<T> {
 
-  /**
-   * Compiles a message based on the provided sanitized content and placeholders.
-   *
-   * @param sanitizedContent the sanitized textual content to compile
-   * @param placeholders a list of {@link SanitizedPlaceholder} objects which are to be substituted
-   *     in the sanitized content
-   * @return the compiled message of type T
-   */
-  T compile(final String sanitizedContent, final List<SanitizedPlaceholder> placeholders);
+    /**
+     * Compiles a message based on the provided sanitized content and placeholders.
+     *
+     * @param sanitizedContent the sanitized textual content to compile
+     * @param placeholders     a list of {@link SanitizedPlaceholder} objects which are to be substituted
+     *                         in the sanitized content
+     * @return the compiled message of type T
+     */
+    T compile(final String sanitizedContent, final List<SanitizedPlaceholder> placeholders);
 }

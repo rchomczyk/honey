@@ -5,5 +5,5 @@ import java.util.Set;
 @FunctionalInterface
 public interface PlaceholderResolver {
 
-  Set<Placeholder> resolve(final String message);
+    Set<Placeholder> resolve(final String message);
 }

@@ -9,9 +9,9 @@ import java.util.concurrent.CompletableFuture;
 
 public interface PlaceholderProcessor {
 
-  List<SanitizedPlaceholder> process(
-      final PlaceholderContext context, final Set<Placeholder> placeholders);
+    List<SanitizedPlaceholder> process(
+        final PlaceholderContext context, final Set<Placeholder> placeholders);
 
-  CompletableFuture<List<SanitizedPlaceholder>> processAsync(
-      final PlaceholderContext context, final Set<Placeholder> placeholders);
+    CompletableFuture<List<SanitizedPlaceholder>> processAsync(
+        final PlaceholderContext context, final Set<Placeholder> placeholders);
 }

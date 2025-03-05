@@ -27,56 +27,56 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public final class ExamplePlugin extends JavaPlugin {
 
-  @Override
-  public void onEnable() {
-    final AdventureMessageFormatter defaultMessageFormatter =
-        AdventureMessageFormatterFactory.create();
-    final AdventureMessageFormatter reflectMessageFormatter = createReflectMessageFormatter();
+    @Override
+    public void onEnable() {
+        final AdventureMessageFormatter defaultMessageFormatter =
+            AdventureMessageFormatterFactory.create();
+        final AdventureMessageFormatter reflectMessageFormatter = createReflectMessageFormatter();
 
-    final ExampleConfig exampleConfig =
-        ConfigManager.create(
-            ExampleConfig.class,
-            initializer ->
-                initializer
-                    .withConfigurer(new YamlSnakeYamlConfigurer(), new AdventureMessageSerdesPack())
-                    .withBindFile(getDataPath().resolve("config.yml"))
-                    .saveDefaults()
-                    .load(true));
+        final ExampleConfig exampleConfig =
+            ConfigManager.create(
+                ExampleConfig.class,
+                initializer ->
+                    initializer
+                        .withConfigurer(new YamlSnakeYamlConfigurer(), new AdventureMessageSerdesPack())
+                        .withBindFile(getDataPath().resolve("config.yml"))
+                        .saveDefaults()
+                        .load(true));
 
-    getServer()
-        .getPluginManager()
-        .registerEvents(
-            new ExampleListener(
-                this, exampleConfig, defaultMessageFormatter, reflectMessageFormatter),
-            this);
-  }
+        getServer()
+            .getPluginManager()
+            .registerEvents(
+                new ExampleListener(
+                    this, exampleConfig, defaultMessageFormatter, reflectMessageFormatter),
+                this);
+    }
 
-  private AdventureMessageFormatter createReflectMessageFormatter() {
-    final MessageCompiler<Component> messageCompiler = AdventureMessageCompilerFactory.create();
-    final ImplicitConversion implicitConversion =
-        ImplicitConversion.create(
-            ImplicitConversionUnit.unchecked(Duration.class, String.class, Duration::toString));
-    final PlaceholderContext placeholderContext = PlaceholderContext.create();
-    final PlaceholderResolver placeholderResolver = PlaceholderResolverFactory.create();
-    final PlaceholderSanitizer placeholderSanitizer =
-        AdventurePlaceholderSanitizerFactory.createReflective();
-    final PlaceholderEvaluator placeholderEvaluator =
-        ReflectivePlaceholderEvaluatorFactory.create();
-    final PlaceholderProcessor placeholderProcessor =
-        PlaceholderProcessorFactory.create(
-            placeholderEvaluator, placeholderSanitizer, implicitConversion);
-    final ProcessorRegistry processorRegistry =
-        ProcessorRegistryFactory.create()
-            // 1) It will process placeholders in this phase.
-            .processor(ProcessorPhase.PREPROCESS, content -> content + " {{player.getName}}")
-            // 2) It will not process placeholders in this phase.
-            .processor(ProcessorPhase.POSTPROCESS, content -> content + " {{player.getUniqueId}}");
-    return AdventureMessageFormatterFactory.create(
-        messageCompiler,
-        placeholderContext,
-        placeholderResolver,
-        placeholderProcessor,
-        placeholderSanitizer,
-        processorRegistry);
-  }
+    private AdventureMessageFormatter createReflectMessageFormatter() {
+        final MessageCompiler<Component> messageCompiler = AdventureMessageCompilerFactory.create();
+        final ImplicitConversion implicitConversion =
+            ImplicitConversion.create(
+                ImplicitConversionUnit.unchecked(Duration.class, String.class, Duration::toString));
+        final PlaceholderContext placeholderContext = PlaceholderContext.create();
+        final PlaceholderResolver placeholderResolver = PlaceholderResolverFactory.create();
+        final PlaceholderSanitizer placeholderSanitizer =
+            AdventurePlaceholderSanitizerFactory.createReflective();
+        final PlaceholderEvaluator placeholderEvaluator =
+            ReflectivePlaceholderEvaluatorFactory.create();
+        final PlaceholderProcessor placeholderProcessor =
+            PlaceholderProcessorFactory.create(
+                placeholderEvaluator, placeholderSanitizer, implicitConversion);
+        final ProcessorRegistry processorRegistry =
+            ProcessorRegistryFactory.create()
+                // 1) It will process placeholders in this phase.
+                .processor(ProcessorPhase.PREPROCESS, content -> content + " {{player.getName}}")
+                // 2) It will not process placeholders in this phase.
+                .processor(ProcessorPhase.POSTPROCESS, content -> content + " {{player.getUniqueId}}");
+        return AdventureMessageFormatterFactory.create(
+            messageCompiler,
+            placeholderContext,
+            placeholderResolver,
+            placeholderProcessor,
+            placeholderSanitizer,
+            processorRegistry);
+    }
 }

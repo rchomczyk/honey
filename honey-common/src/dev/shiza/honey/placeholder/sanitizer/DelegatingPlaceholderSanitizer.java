@@ -11,17 +11,17 @@ import java.util.List;
  */
 final class DelegatingPlaceholderSanitizer implements PlaceholderSanitizer {
 
-  @Override
-  public String getSanitizedContent(
-      final String content, final List<SanitizedPlaceholder> placeholders) {
-    return content;
-  }
+    @Override
+    public String getSanitizedContent(
+        final String content, final List<SanitizedPlaceholder> placeholders) {
+        return content;
+    }
 
-  @Override
-  public SanitizedPlaceholder getSanitizedPlaceholder(final EvaluatedPlaceholder placeholder) {
-    return new SanitizedPlaceholder(
-        placeholder.placeholder().key(),
-        placeholder.placeholder().expression(),
-        placeholder.evaluatedValue());
-  }
+    @Override
+    public SanitizedPlaceholder getSanitizedPlaceholder(final EvaluatedPlaceholder placeholder) {
+        return new SanitizedPlaceholder(
+            placeholder.placeholder().key(),
+            placeholder.placeholder().expression(),
+            placeholder.evaluatedValue());
+    }
 }

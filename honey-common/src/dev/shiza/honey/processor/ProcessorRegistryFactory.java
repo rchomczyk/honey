@@ -6,13 +6,13 @@ import java.util.Map;
 
 public final class ProcessorRegistryFactory {
 
-  private ProcessorRegistryFactory() {}
+    private ProcessorRegistryFactory() {}
 
-  public static ProcessorRegistry create(final Map<ProcessorPhase, List<Processor>> preprocessors) {
-    return new ProcessorRegistryImpl(preprocessors);
-  }
+    public static ProcessorRegistry create(final Map<ProcessorPhase, List<Processor>> preprocessors) {
+        return new ProcessorRegistryImpl(preprocessors);
+    }
 
-  public static ProcessorRegistry create() {
-    return create(ImmutableMap.of());
-  }
+    public static ProcessorRegistry create() {
+        return create(ImmutableMap.of());
+    }
 }

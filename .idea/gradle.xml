@@ -21,11 +21,13 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/buildSrc" />
+            <option value="$PROJECT_DIR$/honey-adventure" />
             <option value="$PROJECT_DIR$/honey-common" />
             <option value="$PROJECT_DIR$/honey-configs" />
-            <option value="$PROJECT_DIR$/honey-configs/honey-configs-common" />
-            <option value="$PROJECT_DIR$/honey-configs/honey-configs-okaeri" />
+            <option value="$PROJECT_DIR$/honey-configs/honey-configs-adventure-common" />
+            <option value="$PROJECT_DIR$/honey-configs/honey-configs-adventure-okaeri" />
             <option value="$PROJECT_DIR$/honey-kt-extension" />
+            <option value="$PROJECT_DIR$/honey-test-plugin" />
           </set>
         </option>
       </GradleProjectSettings>
